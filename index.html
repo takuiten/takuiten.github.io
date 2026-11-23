@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="CV highlighting Web3 community moderation, trading community management, social media audience building, crypto markets and DeFi research." />
+  <title>CV — Web3 Community &amp; Growth | Crypto Markets</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #171717;
+      --muted: #666666;
+      --soft: #8a8a8a;
+      --line: #e5e5e5;
+      --accent: #315e59;
+      --paper: #ffffff;
+      --tag: #f5f6f4;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    main {
+      width: min(100% - 48px, 820px);
+      margin: 0 auto;
+      padding: 64px 0 76px;
+    }
+
+    .eyebrow, .meta, .section-label {
+      font-family: "JetBrains Mono", monospace;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+
+    h1 {
+      margin: 0;
+      color: #111;
+      font-size: clamp(32px, 6vw, 44px);
+      line-height: 1.08;
+      letter-spacing: -.055em;
+      font-weight: 700;
+    }
+
+    .headline {
+      margin: 13px 0 0;
+      color: var(--accent);
+      font-size: 12px;
+      line-height: 1.6;
+      font-weight: 600;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+
+    .summary {
+      max-width: 720px;
+      margin: 25px 0 0;
+      color: #444;
+      font-size: 14px;
+      line-height: 1.85;
+    }
+
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 22px;
+      margin-top: 22px;
+      color: var(--muted);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 10px;
+    }
+
+    .contact a {
+      position: relative;
+      color: inherit;
+      text-decoration: none;
+      transition: color 220ms ease;
+    }
+
+    .contact a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 100%;
+      height: 1px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .contact a:hover { color: var(--accent); }
+    .contact a:hover::after { transform: scaleX(1); }
+
+    section {
+      margin-top: 42px;
+      padding-top: 23px;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-label {
+      margin: 0 0 21px;
+      color: var(--soft);
+      font-size: 10px;
+      font-weight: 500;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px 36px;
+    }
+
+    .skill-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 10px 12px;
+      margin: -10px -12px;
+      border-radius: 6px;
+      transition: background-color 240ms ease, transform 240ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .skill-group:hover {
+      background-color: #fafafa;
+      transform: translateY(-2px);
+    }
+
+    .skill-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .skill-group h3 {
+      margin: 0;
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .skill-score {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      color: var(--muted);
+      flex-shrink: 0;
+      font-variant-numeric: tabular-nums;
+      transition: color 240ms ease;
+    }
+
+    .skill-group:hover .skill-score {
+      color: var(--ink);
+    }
+
+    .skill-track {
+      width: 100%;
+      height: 6px;
+      background: var(--line);
+      overflow: hidden;
+    }
+
+    .skill-fill {
+      position: relative;
+      height: 100%;
+      width: 0;
+      background: var(--ink);
+      transition: width 900ms cubic-bezier(0.22, 1, 0.36, 1), background-color 240ms ease;
+    }
+
+    .skill-group:hover .skill-fill {
+      background: var(--accent);
+    }
+
+    .skill-group p {
+      margin: 2px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.75;
+    }
+
+    .entry {
+      margin-top: 25px;
+      padding-left: 0;
+      border-left: 2px solid transparent;
+      transition: border-color 240ms ease, padding-left 240ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .entry:first-of-type { margin-top: 0; }
+
+    .entry:hover {
+      border-left-color: var(--ink);
+      padding-left: 12px;
+    }
+
+    .entry-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .entry-title {
+      margin: 0;
+      color: var(--ink);
+      font-size: 14px;
+      line-height: 1.5;
+      font-weight: 600;
+    }
+
+    .meta {
+      flex-shrink: 0;
+      color: var(--soft);
+      font-size: 9px;
+      letter-spacing: .06em;
+    }
+
+    .entry-subtitle {
+      margin: 4px 0 0;
+      color: var(--accent);
+      font-size: 11px;
+      line-height: 1.6;
+      font-weight: 500;
+    }
+
+    ul {
+      margin: 10px 0 0;
+      padding-left: 17px;
+      color: #555;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    li { padding-left: 3px; margin: 3px 0; }
+
+    /* Subtle Reveal Animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 620ms cubic-bezier(0.22, 1, 0.36, 1), transform 620ms cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+      .skill-fill, .skill-group, .entry, .contact a::after {
+        transition: none !important;
+      }
+    }
+
+    @media (max-width: 600px) {
+      main { width: min(100% - 36px, 820px); padding: 42px 0 54px; }
+      .skills-grid { grid-template-columns: 1fr; gap: 20px; }
+      .entry-head { display: block; }
+      .meta { display: block; margin-top: 4px; }
+    }
+
+    @page { size: A4; margin: 15mm; }
+    @media print {
+      body { background: #fff; color: #000; }
+      main { width: 100%; margin: 0; padding: 0; }
+      section { margin-top: 27px; padding-top: 16px; }
+      .reveal { opacity: 1 !important; transform: none !important; }
+      .summary { font-size: 11px; }
+      .contact, .meta, .eyebrow, .section-label { font-size: 8px; }
+      .skill-group { padding: 0; margin: 0; }
+      .skill-group p, ul { font-size: 10px; }
+      .skill-track, .skill-fill {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .entry { break-inside: avoid; border-left: none !important; padding-left: 0 !important; }
+      a { color: inherit; text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1 class="reveal" data-delay="0">Takuiten</h1>
+      <p class="headline reveal" data-delay="80">Web3 Community &amp; Growth · Crypto Markets · DeFi Research</p>
+
+      <p class="summary reveal" data-delay="160">
+        Crypto market participant with an educational background in physics and education and 6 years of experience in
+        perpetuals trading, alongside independent research into DeFi protocols and the wider Web3 ecosystem.
+        Hands-on experience growing public trading communities across market cycles, building social media
+        audiences, and driving community growth and moderation for an NFT project. Focused on community
+        growth, audience engagement and making crypto-market concepts accessible.
+      </p>
+
+      <div class="contact reveal" data-delay="230" aria-label="Contact details">
+        <a href="https://x.com/takuiten" target="_blank" rel="noopener noreferrer">contact me</a>
+      </div>
+    </header>
+
+    <section class="reveal" data-delay="280" aria-labelledby="skills-heading">
+      <h2 class="section-label" id="skills-heading">Core Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <div class="skill-head">
+            <h3>DeFi &amp; Web3</h3>
+            <span class="skill-score" data-score="8">8/10</span>
+          </div>
+          <div class="skill-track" role="progressbar" aria-label="DeFi and Web3 proficiency" aria-valuenow="8" aria-valuemin="0" aria-valuemax="10">
+            <div class="skill-fill" data-width="80%" data-delay="120"></div>
+          </div>
+          <p>Protocol research, DeFi mechanics, tokenomics, incentives, yield sustainability and ecosystem research.</p>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-head">
+            <h3>Crypto Markets</h3>
+            <span class="skill-score" data-score="7">7/10</span>
+          </div>
+          <div class="skill-track" role="progressbar" aria-label="Crypto Markets proficiency" aria-valuenow="7" aria-valuemin="0" aria-valuemax="10">
+            <div class="skill-fill" data-width="70%" data-delay="220"></div>
+          </div>
+          <p>Perpetual futures, market structure, liquidity, derivatives analysis and trading risk management.</p>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-head">
+            <h3>Research &amp; Communication</h3>
+            <span class="skill-score" data-score="7">7/10</span>
+          </div>
+          <div class="skill-track" role="progressbar" aria-label="Research and Communication proficiency" aria-valuenow="7" aria-valuemin="0" aria-valuemax="10">
+            <div class="skill-fill" data-width="70%" data-delay="320"></div>
+          </div>
+          <p>Independent research, critical analysis, evaluating project propositions and communicating market-related information.</p>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-head">
+            <h3>Community &amp; Social</h3>
+            <span class="skill-score" data-score="8">8/10</span>
+          </div>
+          <div class="skill-track" role="progressbar" aria-label="Community and Social proficiency" aria-valuenow="8" aria-valuemin="0" aria-valuemax="10">
+            <div class="skill-fill" data-width="80%" data-delay="420"></div>
+          </div>
+          <p>Community management, moderation, member engagement, social media management and audience development.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="reveal" data-delay="80" aria-labelledby="community-heading">
+      <h2 class="section-label" id="community-heading">Community &amp; Social Media Experience</h2>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">Trading Community Management</h3>
+          <span class="meta">Independent</span>
+        </div>
+        <ul>
+          <li>Organically grew two separate public trading groups, solo , across two different market cycles to 500+ members.</li>
+          <li>Grew a personal X account to over 3,000 followers and built a dedicated trading X page to nearly 1,000 followers.</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">Community Growth &amp; Moderator — Particle Ink</h3>
+          <span class="meta">Particle Ink · 6 Months</span>
+        </div>
+        <ul>
+          <li>Contributed to Particle Ink's NFT community for 6 months, supporting both community growth initiatives and day-to-day moderation.</li>
+          <li>Fostered active discussions, member onboarding and sustained engagement across the community.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="reveal" data-delay="120" aria-labelledby="markets-heading">
+      <h2 class="section-label" id="markets-heading">Crypto &amp; Web3 Experience</h2>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">Crypto Perpetuals Trading</h3>
+          <span class="meta">6 Years · Independent</span>
+        </div>
+        <ul>
+          <li>Experience with discretionary and systematic approaches to crypto perpetuals trading, including delta-neutral strategies.</li>
+          <li>Follow derivatives market conditions, liquidity and market structure while assessing trading risk.</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">DeFi &amp; Web3 Research</h3>
+          <span class="meta">Independent Research</span>
+        </div>
+        <ul>
+          <li>Research DeFi protocols, tokenomics, liquidity mechanisms, incentives and the sustainability of yield sources.</li>
+          <li>Explore Web3 projects, protocol fundamentals and developments across the crypto ecosystem.</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+
+  <script>
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const revealEls = document.querySelectorAll('.reveal');
+    const skillFills = document.querySelectorAll('.skill-fill');
+    const scoreEls = document.querySelectorAll('.skill-score[data-score]');
+
+    function animateScores() {
+      scoreEls.forEach((el, idx) => {
+        const target = parseInt(el.getAttribute('data-score'), 10) || 0;
+        if (prefersReduced) {
+          el.textContent = `${target}/10`;
+          return;
+        }
+        const duration = 700;
+        const startDelay = 120 + idx * 100;
+        setTimeout(() => {
+          const start = performance.now();
+          function step(now) {
+            const progress = Math.min(1, (now - start) / duration);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const current = Math.round(eased * target);
+            el.textContent = `${current}/10`;
+            if (progress < 1) requestAnimationFrame(step);
+          }
+          requestAnimationFrame(step);
+        }, startDelay);
+      });
+    }
+
+    function animateBars() {
+      skillFills.forEach(bar => {
+        const targetWidth = bar.getAttribute('data-width');
+        const delay = prefersReduced ? 0 : parseInt(bar.getAttribute('data-delay') || '0', 10);
+        setTimeout(() => {
+          bar.style.width = targetWidth;
+        }, delay);
+      });
+    }
+
+    if (prefersReduced || !('IntersectionObserver' in window)) {
+      revealEls.forEach(el => el.classList.add('is-visible'));
+      animateBars();
+    } else {
+      let skillsAnimated = false;
+      const skillsSection = document.getElementById('skills-heading')?.closest('section');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target;
+          const delay = parseInt(el.getAttribute('data-delay') || '0', 10);
+          setTimeout(() => el.classList.add('is-visible'), delay);
+
+          if (!skillsAnimated && el === skillsSection) {
+            skillsAnimated = true;
+            animateBars();
+            animateScores();
+          }
+          observer.unobserve(el);
+        });
+      }, { threshold: 0.12 });
+
+      revealEls.forEach(el => observer.observe(el));
+    }
+  </script>
+</body>
+</html>
